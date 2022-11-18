@@ -39,4 +39,9 @@ steps:
       dockerComposeFile: '**/azure docker'
       action: 'Run a Docker Compose command'
       dockerComposeCommand: 'build'
-  
+  - task: DockerCompose@0
+    inputs:
+      containerregistrytype: 'Container Registry'
+      dockerRegistryEndpoint: 'dockerconnection'
+      dockerComposeFile: '**/azure docker'
+      action: 'Push services'
