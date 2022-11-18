@@ -37,8 +37,7 @@ steps:
       containerregistrytype: 'Container Registry'
       dockerRegistryEndpoint: 'dockerconnection'
       dockerComposeFile: '**/azure docker'
-      action: 'Run a Docker Compose command'
-      dockerComposeCommand: 'build'
+      action: 'Build services'
   - task: DockerCompose@0
     inputs:
       containerregistrytype: 'Container Registry'
