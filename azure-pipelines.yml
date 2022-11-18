@@ -32,10 +32,11 @@ steps:
     inputs:
       containerRegistry: 'dockerconnection'
       command: 'login'
-  - task: Docker@2
+  - task: DockerCompose@0
     inputs:
-      containerRegistry: 'dockerconnection'
-      repository: 'kparun / azure'
-      command: 'buildAndPush'
-      Dockerfile: '**/azure docker'
+      containerregistrytype: 'Container Registry'
+      dockerRegistryEndpoint: 'dockerconnection'
+      dockerComposeFile: '**/azure docker'
+      action: 'Run a Docker Compose command'
+      dockerComposeCommand: 'build'
   
