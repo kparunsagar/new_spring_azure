@@ -32,15 +32,15 @@ steps:
     inputs:
       containerRegistry: 'dockerconnection'
       command: 'login'
-  - task: DockerCompose@0
+  - task: Docker@2
     inputs:
-      containerregistrytype: 'Container Registry'
-      dockerRegistryEndpoint: 'dockerconnection'
-      dockerComposeFile: '**/azure docker'
-      action: 'Build services'
-  - task: DockerCompose@0
+      containerRegistry: 'dockerconnection'
+      repository: 'kparun / spring'
+      command: 'buildAndPush'
+      Dockerfile: '**/Dockerfile'
+  - task: Docker@2
     inputs:
-      containerregistrytype: 'Container Registry'
-      dockerRegistryEndpoint: 'dockerconnection'
-      dockerComposeFile: '**/azure docker'
-      action: 'Push services'
+      containerRegistry: 'dockerconnection'
+      repository: 'kparun / demo-app'
+      command: 'buildAndPush'
+      Dockerfile: '**/Dockerfile'
